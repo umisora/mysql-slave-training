@@ -1,0 +1,30 @@
+version: '2'
+
+services:
+  mysql-training-master01:
+    container_name: mysql-training-master01
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: mysql-training
+    ports:
+      - "13300:3306"
+    volumes:
+      - ./master01/conf.d:/etc/mysql/mysql.conf.d:rw
+      - ./master01/data:/var/lib/mysql:rw
+  mysql-training-slave01:
+    container_name: mysql-training-slave01
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: mysql-training
+    ports:
+      - "13310:3306"
+    volumes:
+      - ./slave01/conf.d:/etc/mysql/mysql.conf.d:rw
+      - ./slave01/data:/var/lib/mysql:rw
+    
