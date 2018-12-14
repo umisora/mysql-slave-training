@@ -1,2 +1,4 @@
 master01/data/
 slave01/data/
+*.sql
+*.gz

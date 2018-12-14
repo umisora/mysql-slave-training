@@ -29,4 +29,14 @@ datadir         = /var/lib/mysql
 # Disabling symbolic-links is recommended to prevent assorted security risks
 symbolic-links=0
 
-# hoge
+# Step1
+server-id=900
+gtid_mode=ON
+enforce-gtid-consistency=true
+log_bin=mysql-bin
+sync_binlog=1
+skip-slave-start
+log_slave_updates
+read_only
+relay_log=mysql-relay-bin
+

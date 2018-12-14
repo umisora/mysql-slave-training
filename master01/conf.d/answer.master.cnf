@@ -23,10 +23,15 @@
 pid-file        = /var/run/mysqld/mysqld.pid
 socket          = /var/run/mysqld/mysqld.sock
 datadir         = /var/lib/mysql
-#log-error      = /var/log/mysql/error.log
+log-error      = /var/log/mysql/error.log
 # By default we only accept connections from localhost
 #bind-address   = 127.0.0.1
 # Disabling symbolic-links is recommended to prevent assorted security risks
 symbolic-links=0
 
-# hoge
+# Step1
+server-id=1
+gtid_mode=ON
+enforce-gtid-consistency=true
+log_bin=mysql-bin
+sync_binlog=1
